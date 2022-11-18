@@ -130,12 +130,10 @@ stamparePortfolio(portfolio);
 function stamparePortfolio(array){
     //creare div contenitori e row dentro
 let bigDiv = document.getElementById("bigDiv");
-bigDiv.classList.add("text-center");
-bigDiv.classList.add("container-fluid");
+
 
 let heading = document.createElement("h2");
 heading.textContent ="PORTFOGLIO";
-heading.classList.add("p-3");
 
 let row = document.createElement("div");
 row.classList.add("row");
@@ -144,9 +142,8 @@ row.classList.add("row-cols-md-2");
 row.classList.add("row-cols-lg-3");
 row.classList.add("row-cols-xl-3");
 row.classList.add("row-cols-xxl-3");
-row.classList.add("g-4");
-row.classList.add("justify-content-center");
-
+//row.classList.add("g-gl-1");
+//row.classList.add("justify-content-center");
 
 
 bigDiv.appendChild(heading);
@@ -157,8 +154,8 @@ for(let element of array){
     console.log(element);
 
 row.innerHTML += `
-<div class="col p-0">
-    <div class="card" style="width: 26rem;">
+<div class="col px-2">
+    <div class="card">
                 <img src="${element.img}" class="card-img-top" alt="${element.titolo}">
                 <div class="card-body">
                   <h5 class="card-title">${element.titolo}</h5>
@@ -168,7 +165,6 @@ row.innerHTML += `
               </div>
 </div>
 `
-
 }
 }
 
