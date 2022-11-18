@@ -47,9 +47,15 @@ if(verificaCodicePromozionale(codicePUtente,codiciPromozionali)){
 prezzoFinale = prezzoSenzaSconto - (prezzoSenzaSconto*25/100);
 notificaAlUtente.textContent = `il prezzo con lo sconto è: ${prezzoFinale}`
 
-} else {
+} else if(codicePUtente.trim() =="") {
+//se l'utente non ha inserito il codice
 prezzoFinale = prezzoSenzaSconto;
-notificaAlUtente.innerHTML = `il tuo codice è sbagliato! <br>
+notificaAlUtente.innerHTML = `
+il prezzo senza sconto è: ${prezzoFinale}`
+} else {
+//se il codice è inserito ma è errato 
+prezzoFinale = prezzoSenzaSconto;
+notificaAlUtente.innerHTML = `il tuo codice promozionale è sbagliato!
 il prezzo senza sconto è: ${prezzoFinale}`
 }
 
