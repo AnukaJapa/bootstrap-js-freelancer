@@ -7,8 +7,8 @@
 //~Se la commissione riguarda l’analisi progettuale di un progetto il prezzo orario è di 33.60 € l'ora
 
 //~ Se poi l’utente inserisce un codice promozionale tra i seguenti YHDNU32, JANJC63, PWKCN25, SJDPO96, POCIE24, fate in modo che l’utente abbia diritto ad uno sconto del 25% sul prezzo finale.
-// Se il codice inserito non è valido, informate l’utente che il codice è sbagliato e calcolate il prezzo finale senza applicare sconti.
-// Mostrare il risultato del calcolo del prezzo finale in una “forma umana” in un apposito tag HTML appena sotto il bottone send.
+//~ Se il codice inserito non è valido, informate l’utente che il codice è sbagliato e calcolate il prezzo finale senza applicare sconti.
+// ~Mostrare il risultato del calcolo del prezzo finale in una “forma umana” in un apposito tag HTML appena sotto il bottone send.
 
 
 // CONSIDERAZIONI FINALI e BONUS:
@@ -21,6 +21,7 @@ const codiciPromozionali = ["YHDNU32", "JANJC63", "PWKCN25", "SJDPO96", "POCIE24
 
 function calcola(event){
     event.preventDefault();
+    rimuoviRosso();
     let notificaAlUtente = document.getElementById("notificaAlUtente");
 
     let tipoDiLavoro = document.getElementById("typeOfWorkInput").value;
@@ -57,7 +58,22 @@ il prezzo senza sconto è: ${prezzoFinale}`
 prezzoFinale = prezzoSenzaSconto;
 notificaAlUtente.innerHTML = `il tuo codice promozionale è sbagliato!
 il prezzo senza sconto è: ${prezzoFinale}`
+diventaRosso();
 }
+}
+
+function rimuoviRosso(){
+let codicePUtenteDOM = document.getElementById("discountCodeInput");
+codicePUtenteDOM.classList.remove("text-danger"); 
+codicePUtenteDOM.classList.remove("border-danger");
+ 
+}
+function diventaRosso(){
+let codicePUtenteDOM = document.getElementById("discountCodeInput");
+codicePUtenteDOM.classList.add("text-danger");
+//oppure codicePUtenteDOM.style.color="red";
+codicePUtenteDOM.classList.add("border-danger");
+
 
 }
 
@@ -70,3 +86,5 @@ function verificaCodicePromozionale(codice,codProAutorizzati){
 
     return false
 }
+
+
