@@ -26,22 +26,22 @@ function calcola(event){
     let tipoDiLavoro = document.getElementById("typeOfWorkInput").value;
     let hoursRequested = document.getElementById("hoursInput").value;
     let codicePUtente = document.getElementById("discountCodeInput").value;
-    console.log(codicePUtente);
 
     let prezzoSenzaSconto;
     let prezzoFinale;
 
 // prezzo senza sconto a secondo di tipo di lavoro
 switch(tipoDiLavoro){
-    case 1:
+    case "1":
 prezzoSenzaSconto = hoursRequested * 20.50;
     break;
-    case 2:
+    case "2":
 prezzoSenzaSconto = hoursRequested * 15.30; 
     break;
-    case 3:
+    case "3":
 prezzoSenzaSconto = hoursRequested * 33.60; 
 }
+
 //verifica se codice promozionale inserito dall'utente sia giusto e calcola il prezzo in conseguenza
 if(verificaCodicePromozionale(codicePUtente,codiciPromozionali)){
 prezzoFinale = prezzoSenzaSconto - (prezzoSenzaSconto*25/100);
